@@ -8,8 +8,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeProvider readHomeProvider = context.read<HomeProvider>();
-    HomeProvider homeProvider = Provider.of<HomeProvider>(context);
+    // Read & Watch both functionality can be achive my this type of object
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     debugPrint('build');
     return Scaffold(
       appBar: AppBar(
@@ -22,16 +22,21 @@ class HomeView extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '${homeProvider.count}',
-              key: const Key('counterState'),
-              style: Theme.of(context).textTheme.headlineMedium,
+            // Consumer is used to rebuild only specfic widget
+            Consumer<HomeProvider>(
+              builder: (BuildContext context, value, Widget? child) {
+                return Text(
+                  '${homeProvider.count}',
+                  key: const Key('counterState'),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => readHomeProvider.increment(),
+        onPressed: () => homeProvider.increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
