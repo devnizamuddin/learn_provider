@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../components/nswitch.dart';
 import 'home_provider.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     // Read & Watch both functionality can be achive my this type of object
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
-    debugPrint('build');
+    debugPrint('building Scafold');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -25,11 +26,21 @@ class HomeView extends StatelessWidget {
             // Consumer is used to rebuild only specfic widget
             Consumer<HomeProvider>(
               builder: (BuildContext context, value, Widget? child) {
+                debugPrint('building Counter Text');
                 return Text(
                   '${homeProvider.count}',
                   key: const Key('counterState'),
                   style: Theme.of(context).textTheme.headlineMedium,
                 );
+              },
+            ),
+
+            Consumer<HomeProvider>(
+              builder: (BuildContext context, value, Widget? child) {
+                debugPrint('building Switch');
+                return NSwitch(
+                    value: homeProvider.switchValue,
+                    onChanged: homeProvider.changeSwitchValue);
               },
             ),
           ],
