@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_provider/routes/route_direction.dart';
 import 'modules/home/home_screen.dart';
 
 class LearnProvider extends StatelessWidget {
@@ -11,6 +12,7 @@ class LearnProvider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: RouteDirection.routeMap,
       home: const HomeScreen(),
     );
   }
