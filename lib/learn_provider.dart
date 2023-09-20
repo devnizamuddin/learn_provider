@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'modules/home/home_view.dart';
+import 'modules/home/home_screen.dart';
 
 class LearnProvider extends StatelessWidget {
   const LearnProvider({super.key});
@@ -12,7 +11,7 @@ class LearnProvider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      home: const HomeScreen(),
     );
   }
 }

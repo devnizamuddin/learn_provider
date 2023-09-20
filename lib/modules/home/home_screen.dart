@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import '../../components/nswitch.dart';
 import 'home_provider.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
