@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_provider/components/ndrawer.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/nswitch.dart';
@@ -16,6 +17,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
+      drawer: const NDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
